@@ -1,0 +1,29 @@
+//Things to fix
+1.) At 100% my footer is overlapping with the children of my app layout, make it that there is a gap between themat zoom level 100% in chrome responsiveness tab.
+
+2.) At same 100% tab, because the children at the bottom and navigation are overlappig, the buttons in the children main div are not clickable, so users cannot navigate to the next page.
+
+3.) Also at 100%, in some pages, the background dosen't fill the whole page view, if I scroll down, I will start seeing some white space which is the defauls body css styling for any web browsers, and my users are complaining, I think this is because I am using min-h-[10vh].
+
+4.) At 75% chrome browsers responsiveness, this issue does not occur at all, the whole screen is not scrollable, so if its scrollable, that is when the background begins to cut and then below is some white space.
+
+So the issue arises only when we check for responsiveness, at some certain width and percentage of 100% zoom. In my tailwind, I created differerent screen sizes
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      screens: {
+        xsm: "320px",
+        xs: "375px",
+        sm: "480px",
+        md: "650px",
+        md: "768px",
+        lg: "1024px",
+      },
+1.) At the width of all this screen sizes and 100% frome chrome dev responsiveness tool,  my footer is overlapping with the children of my app layout, the buttons in the children main div are not clickable, so users cannot navigate to the next page, the background dosen't fill the whole page view, if I scroll down, I will start seeing some white space which is the defauls body css styling for any web browsers, and my users are complaining, I think this is because I am using min-h-[10vh].
+
+But I observed that at 75% chrome browsers responsiveness, this issue does not occur at all, the whole screen is not scrollable, so if its scrollable, that is when the background begins to cut and then below is some white space.
+
+Please what can be the issue why this is happening, do you need me to share my code and see what I have done, please shed light on this.

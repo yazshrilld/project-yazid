@@ -18,6 +18,20 @@
   }
 }
 
+@layer components {
+  .bg-gradient-light {
+    @apply bg-gradient-to-br from-[#F8FAFC99] to-[#F8FAFCdd] text-gray-900;
+  }
+
+  .bg-gradient-dark {
+    @apply bg-gradient-to-br from-[#1B1032] via-[#161A23] to-[#0D0F15] text-white;
+  }
+
+  .bg-dark-only {
+    @apply bg-gradient-to-b from-[#161A23] via-[#0D0F15] to-[#0D0F15];
+  }
+}
+
 @layer utilities {
   .center-body {
     min-height: 100vh;
@@ -25,4 +39,46 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+.quote-box::before,
+.quote-box::after {
+  content: "“"; /* Opening and Closing Quotes */
+  font-family: "Times New Roman", Times, serif;
+  font-size: 100px;
+  line-height: 150px;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.525); /* Adjust the color to match the design */
+}
+
+.quote-box::before {
+  left: -0px;
+  top: -50px;
+}
+
+.quote-box::after {
+  content: "”"; /* Closing Quote */
+  right: -10px;
+  bottom: -100px;
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+  width: 4px; /* Thinner scrollbar */
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.perspective-five {
+  perspective: 500px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
 }

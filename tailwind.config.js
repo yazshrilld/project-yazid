@@ -1,3 +1,5 @@
+import { postcss } from 'tailwindcss';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
@@ -5,9 +7,10 @@ export default {
   theme: {
     extend: {
       screens: {
-        xsm: "350px",
+        xsm: "320px",
+        xs: "375px",
         sm: "480px",
-        smd: "650px",
+        // md: "650px",
         md: "768px",
         lg: "1024px",
       },
@@ -25,4 +28,7 @@ export default {
     },
   },
   plugins: [],
+  css: {
+    postcss
+  }
 };
