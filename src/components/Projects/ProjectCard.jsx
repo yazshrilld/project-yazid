@@ -33,7 +33,7 @@ const ProjectCard = ({ project, nextProject, prevProject }) => {
               <button
                 // onClick={prevProject}
                 onClick={() => {
-                  console.log("Prev button clicked");
+                  // console.log("Prev button clicked");
                   prevProject();
                 }}
                 className="text-gray-500 text-[12px] hover:text-[16px] hover:text-white transition-all duration-300"
@@ -43,7 +43,7 @@ const ProjectCard = ({ project, nextProject, prevProject }) => {
               <button
                 // onClick={nextProject}
                 onClick={() => {
-                  console.log("Next button clicked");
+                  // console.log("Next button clicked");
                   nextProject();
                 }}
                 className="text-gray-500 text-[12px] hover:text-[16px] hover:text-white transition-all duration-300"

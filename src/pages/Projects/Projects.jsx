@@ -29,7 +29,7 @@ const Projects = () => {
   const nextProject = () => {
     setCurrentIndex((prevIndex) => {
       const newIndex = (prevIndex + 1) % projects.length;
-      console.log("Next Project Index:", newIndex);
+      // console.log("Next Project Index:", newIndex);
       return newIndex;
     });
   };
@@ -37,12 +37,12 @@ const Projects = () => {
   const prevProject = () => {
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex === 0 ? projects.length - 1 : prevIndex - 1;
-      console.log("Previous Project Index:", newIndex);
+      // console.log("Previous Project Index:", newIndex);
       return newIndex;
     });
   };
 
-  console.log("Current Project:", projects[currentIndex]);
+  // console.log("Current Project:", projects[currentIndex]);
 
   return (
     <div className="text-white">

@@ -1,29 +1,69 @@
-//Things to fix
-1.) At 100% my footer is overlapping with the children of my app layout, make it that there is a gap between themat zoom level 100% in chrome responsiveness tab.
+Ok, you are getting there, but still not gotten what I want, 
+1.) I dont want to create another carousel.jsx component, because I stoo want to use my RecentAppsModal.jsx component
+2.) AppLayout.jsx is what controls the display of the RecentAppsModal.jsx from the code below
+<List
+                size={28}
+                className={cursor-pointer ${visitedPages?.length === 0 ? "hover:cursor-text" : "hover:text-white"}}}
+                onClick={() => setShowRecentApps(!showRecentApps)}
+              />
 
-2.) At same 100% tab, because the children at the bottom and navigation are overlappig, the buttons in the children main div are not clickable, so users cannot navigate to the next page.
+3.) I want to achieve this similar scrolling carousel with the array from visitedPages, the visitedpages array is passed from the AppLayout.jsx props, do not change the data to something else,
+4.) when the RecentAppsModal displays, I want the recently visited pages to be at the center where the pages are then displayed in a circular or stacked manner and the adjacent pages are positioned on the left and right with a perspective effect.
 
-3.) Also at 100%, in some pages, the background dosen't fill the whole page view, if I scroll down, I will start seeing some white space which is the defauls body css styling for any web browsers, and my users are complaining, I think this is because I am using min-h-[10vh].
+see my current code for visitedPages, how they are displayed, 
+{(visitedPages || [])?.map((page, index) => (
+            <motion.div
+              key={page.id}
+              className="absolute w-[380px] h-[280px] p-4 rounded-lg cursor-pointer flex flex-row items-center shadow-lg"
+              style={{
+                zIndex: visitedPages?.length - index, // Stacks newest on top
+                transform: scale(${1 - index * 0.05}) translateY(${index * 8}px),
+                opacity: index === 0 ? 1 : 0.7,
+              }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => {
+                setIsOpen(false);
+                navigate(page.path);
+              }}
+            >
+              <img src={page.thumbnail} alt={page.title} className="w-full object-cover rounded-md" />
+              {/* <p className="text-white text-sm text-center mt-2">{page.title}</p> */}
+            </motion.div>
+          ))}
 
-4.) At 75% chrome browsers responsiveness, this issue does not occur at all, the whole screen is not scrollable, so if its scrollable, that is when the background begins to cut and then below is some white space.
+but I want you to display them using this logic
+{React.Children.map(children, (child, i) => (
+  <div className='card-container' style={{
+      '--active': i === active ? 1 : 0,
+      '--offset': (active - i) / 3,
+      '--direction': Math.sign(active - i),
+      '--abs-offset': Math.abs(active - i) / 3,
+      'pointer-events': active === i ? 'auto' : 'none',
+      'opacity': Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
+      'display': Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
+    }}>
+    {child}
+  </div>
+))}
 
-So the issue arises only when we check for responsiveness, at some certain width and percentage of 100% zoom. In my tailwind, I created differerent screen sizes
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: "class",
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {
-      screens: {
-        xsm: "320px",
-        xs: "375px",
-        sm: "480px",
-        md: "650px",
-        md: "768px",
-        lg: "1024px",
-      },
-1.) At the width of all this screen sizes and 100% frome chrome dev responsiveness tool,  my footer is overlapping with the children of my app layout, the buttons in the children main div are not clickable, so users cannot navigate to the next page, the background dosen't fill the whole page view, if I scroll down, I will start seeing some white space which is the defauls body css styling for any web browsers, and my users are complaining, I think this is because I am using min-h-[10vh].
+ {[...new Array(CARDS)].map((_, i) => (
+        <Card title={'Card ' + (i + 1)} content='Lorem ipsum...' />
+      ))}
 
-But I observed that at 75% chrome browsers responsiveness, this issue does not occur at all, the whole screen is not scrollable, so if its scrollable, that is when the background begins to cut and then below is some white space.
+and the visitedPages array will display like this, see the css below
 
-Please what can be the issue why this is happening, do you need me to share my code and see what I have done, please shed light on this.
+.card-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: 
+    rotateY(calc(var(--offset) * 50deg)) 
+    scaleY(calc(1 + var(--abs-offset) * -0.4))
+    translateZ(calc(var(--abs-offset) * -30rem))
+    translateX(calc(var(--direction) * -5rem));
+  filter: blur(calc(var(--abs-offset) * 1rem));
+  transition: all 0.3s ease-out;
+}

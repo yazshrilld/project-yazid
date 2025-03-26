@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "yazid-musa",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,12 +13,14 @@
     "@svgr/rollup": "^8.1.0",
     "eslint-config-react-app": "^7.0.1",
     "framer-motion": "^12.4.10",
+    "html2canvas": "^1.4.1",
     "lucide-react": "^0.477.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^6.16.0",
+    "react-swipeable": "^7.0.2",
     "uuid": "^9.0.1",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-svgr": "^4.1.0"

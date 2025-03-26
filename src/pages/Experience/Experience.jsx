@@ -67,7 +67,7 @@ const Experience = () => {
         alert("Failed to send resume. Try again.");
       }
     } catch (error) {
-      console.error("Error requesting resume:", error);
+      // console.error("Error requesting resume:", error);
       alert("An error occurred. Please try again.");
     }
   };
