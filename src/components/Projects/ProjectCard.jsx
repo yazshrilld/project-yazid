@@ -56,7 +56,7 @@ const ProjectCard = ({ project, nextProject, prevProject }) => {
 
         {/* Project Image */}
         <div className="mt-4">
-          <img src={project.image} alt={project.name} className="rounded-md w-full h-[250px] object-cover" />
+          <img src={project.image} loading="lazy" alt={project.name} className="rounded-md w-full h-[250px] object-cover" />
         </div>
 
         {/* Description */}

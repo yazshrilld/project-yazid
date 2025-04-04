@@ -46,7 +46,7 @@ const RecentAppsModal = ({ isOpen, setIsOpen, visitedPages }) => {
                 }}
               >
                 
-                <img src={page.thumbnail} alt={page.title} className="w-70 h-60 object-cover rounded-md mt-2" />
+                <img src={page.thumbnail} loading="lazy" alt={page.title} className="w-70 h-60 object-cover rounded-md mt-2" />
               </div>
             </div>
           ))}

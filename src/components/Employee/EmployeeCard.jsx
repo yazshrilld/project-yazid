@@ -4,7 +4,7 @@ const EmployeeCard = ({ company, role, duration, description, logo, link }) => {
   return (
     <div className="flex flex-col gap-2 item-center xs:flex-row sm:gap-4 md:items-start rounded-lg group">
       {/* Company Logo */}
-      <img src={logo} alt={company} className="w-16 h-16 rounded-full md:rounded-md object-cover" />
+      <img src={logo} loading="lazy" alt={company} className="w-16 h-16 rounded-full md:rounded-md object-cover" />
 
       <div className="text-gray-300">
         <h2 className="text-white font-bold text-[12px] md:text-sm">

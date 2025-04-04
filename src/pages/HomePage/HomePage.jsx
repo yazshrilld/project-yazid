@@ -17,6 +17,7 @@ const HomePage = () => {
       <div className="relative w-32 h-32 sm:w-40 sm:h-40 group">
         <img
           src={profilePic}
+          loading="lazy"
           alt="Profile"
           className="w-full h-full rounded-full border-4 border-gray-300 shadow-lg object-cover transition-transform duration-300 ease-in-out group-hover:scale-[1.1] cursor-pointer group-hover:z-[10px]"
           onClick={() => setIsOpen(true)}
@@ -26,12 +27,12 @@ const HomePage = () => {
             className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
             onClick={() => setIsOpen(false)}
           >
-            <img src={profilePic} alt="Profile Full View" className="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl" />
+            <img src={profilePic} loading="lazy" alt="Profile Full View" className="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl" />
           </div>
         )}
         <div className="absolute bottom-0 right-0">
           <button className="rounded-full bg-gray-200 dark:bg-gray-800 border-2 p-1">
-            <img src={yazSign} alt="Signature" className="w-6 h-6 sm:w-8 sm:h-8" />
+            <img src={yazSign} loading="lazy" alt="Signature" className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
         </div>
       </div>
