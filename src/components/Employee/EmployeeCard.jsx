@@ -20,7 +20,7 @@ const EmployeeCard = ({ company, role, duration, description, logo, link }) => {
             rel="noopener noreferrer"
             className="text-gray-400 text-sm font-medium hover:text-blue-500 flex items-center gap-1"
           >
-            View App<span>🔗</span>
+            View Organization<span>🔗</span>
           </a>
         )}
       </div>

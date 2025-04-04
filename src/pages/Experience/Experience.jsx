@@ -77,7 +77,12 @@ const Experience = () => {
       <div className="flex flex-col items-start space-y-2 md:flex-row md:items-center justify-between md:mb-4">
         <h1 className="text-[30px] md:text-[42px] font-bold text-white">Experience</h1>
         <button
-          onClick={() => alert("Resume request feature coming soon!")}
+          onClick={() =>
+            window.open(
+              "https://drive.google.com/file/d/1qh_yT60nzrkoLJvuCeSNn2LYzgzU_6ZW/view?usp=drive_link",
+              "_blank"
+            )
+          }
           className="flex items-center gap-2 text-[#C2C2C2] border border-[#C2C2C2] px-2 py-1 md:px-4 md:py-2 rounded-lg text-sm font-medium transition-all hover:bg-[#C2C2C2] hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
         >
           <FaDownload className="text-md md:text-lg" /> {/* Download icon */}

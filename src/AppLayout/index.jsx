@@ -73,11 +73,7 @@ const AppLayout = ({ children }) => {
       });
     }, 1000); // Wait 1 second to ensure everything is fully loaded
   }, [location.pathname]);
-
-  console.log("From Index Page: ", {
-  // recentApps, showRecentApps, pageRef,
-  visitedPages
-  });
+  
 
   return (
     <div
@@ -126,7 +122,7 @@ const AppLayout = ({ children }) => {
               {visitedPages?.length >= 3 && (
                 <List
                   size={28}
-                  className={`cursor-pointer ${visitedPages?.length === 0 ? "hover:cursor-text" : "hover:text-white"}}`}
+                  className="cursor-pointer hover:text-white"
                   onClick={() => setShowRecentApps(!showRecentApps)}
                 />
               )}

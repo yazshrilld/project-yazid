@@ -1,112 +1,148 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Home, ArrowLeft, List } from "lucide-react";
-import sunIcon from "../assets/svg/sun.svg";
-import moonIcon from "../assets/svg/moon.svg";
-import PropTypes from "prop-types";
-import Caraousel3D from "../pages/Carousel/Caraousel3D";
-import HomePage from "../pages/HomePage/HomePage";
-import AboutUs from "../pages/AboutUs/AboutUs";
-import Experience from "../pages/Experience/Experience";
-import Projects from "../pages/Projects/Projects";
-import ReachOut from "../pages/ReachOut/ReachOut";
+// import React, {useState} from "https://esm.sh/react@18";
+// import ReactDOM from "https://esm.sh/react-dom@18";
 
-const AppLayout = ({ children }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "light";
-  });
-  const [carouselMode, setCarouselMode] = useState(false);
+// import {TiChevronLeftOutline, TiChevronRightOutline} from 'https://cdn.skypack.dev/react-icons/ti';
 
-  const isHomePage = location.pathname === "/";
+// const CARDS = 10;
+// const MAX_VISIBILITY = 3;
 
-  const pages = [
-    { id: "home", component: <HomePage /> },
-    { id: "about", component: <AboutUs /> },
-    { id: "experience", component: <Experience /> },
-    { id: "projects", component: <Projects /> },
-    { id: "reachOut", component: <ReachOut /> },
-  ];
+// const Card = ({title, content}) => (
+//   <div className='card'>
+//     <h2>{title}</h2>
+//     <p>{content}</p>
+//   </div>
+// );
 
-  useEffect(() => {
-    // if (darkMode)
-    //    {
-    //   document.documentElement.classList.add("dark");
-    //   localStorage.setItem("theme", "dark");
-    // }
-    if (darkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
+// const Carousel = ({children}) => {
+//   const [active, setActive] = useState(2);
+//   const count = React.Children.count(children);
 
-  return (
-    <div className={`h-screen w-full transition-all duration-300 ${darkMode ? "bg-gradient-dark" : "bg-gray-400"}`}>
-      <div className="absolute top-4 right-4 hidden md:block">
-        <button onClick={() => setDarkMode(!darkMode)} className="p-2 rounded-full bg-gray-200 dark:bg-gray-800">
-          <img src={darkMode ? sunIcon : moonIcon} alt="Theme Toggle Icon" className="w-8 h-8" />
-        </button>
-      </div>
+//   return (
+//     <div className='carousel'>
+//       {active > 0 && <button className='nav left' onClick={() => setActive(i => i - 1)}><TiChevronLeftOutline/></button>}
+//       {React.Children.map(children, (child, i) => (
+//         <div className='card-container' style={{
+//             '--active': i === active ? 1 : 0,
+//             '--offset': (active - i) / 3,
+//             '--direction': Math.sign(active - i),
+//             '--abs-offset': Math.abs(active - i) / 3,
+//             'pointer-events': active === i ? 'auto' : 'none',
+//             'opacity': Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
+//             'display': Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
+//           }}>
+//           {child}
+//         </div>
+//       ))}
+//       {active < count - 1 && <button className='nav right' onClick={() => setActive(i => i + 1)}><TiChevronRightOutline/></button>}
+//     </div>
+//   );
+// };
 
-      <div className="flex items-center justify-center h-full">
-        <main
-          className={`max-w-xl w-full ${
-            !darkMode ? "bg-white" : "bg-[#161A23]"
-          } shadow-lg min-h-screen p-8 rounded-[30px] relative overflow-hidden`}
-        >
-          {carouselMode ? <Caraousel3D pages={pages} /> : children}
-        </main>
-        <div className="w-full max-w-[400px] fixed bottom-6 flex gap-x-[30px] justify-between items-center px-4 text-gray-400">
-          <ArrowLeft
-            size={28}
-            className={`cursor-pointer ${isHomePage ? "opacity-50 cursor-text" : "hover:text-white"}`}
-            onClick={() => {
-              if (!isHomePage) navigate(-1);
-            }}
-          />
-          <Home
-            size={28}
-            className="hover:text-white cursor-pointer"
-            onClick={() => navigate("/")} // Navigate to homepage
-          />
-          <List
-            size={28}
-            className="hover:text-white cursor-pointer"
-            onClick={() => setCarouselMode((prev) => !prev)}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
+// const App = () => (
+//   <div className='app'>
+//     <Carousel>
+//       {[...new Array(CARDS)].map((_, i) => (
+//         <Card title={'Card ' + (i + 1)} content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'/>
+//       ))}
+//     </Carousel>
+//   </div>
+// );
 
-const FooterNavigation = ({ setCarouselMode }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
+// ReactDOM.render(
+//   <App/>,
+//   document.body
+// );
 
-  return (
-    <div className="w-full max-w-[400px] fixed bottom-6 flex gap-x-[30px] justify-between items-center px-4 text-gray-400">
-      <ArrowLeft
-        size={28}
-        className={`cursor-pointer ${isHomePage ? "opacity-50 cursor-text" : "hover:text-white"}`}
-        onClick={() => {
-          if (!isHomePage) navigate(-1);
-        }}
-      />
-      <Home size={28} className="hover:text-white cursor-pointer" onClick={() => navigate("/")} />
-      <List size={28} className="hover:text-white cursor-pointer" onClick={() => setCarouselMode((prev) => !prev)} />
-    </div>
-  );
-};
+// <img src={page.thumbnail} alt={page.title} className="w-40 h-40 object-cover rounded-md mt-2" />
 
-AppLayout.propTypes = {
-  children: PropTypes.node, // `children` should be a React node
-};
+// <div className="fixed inset-0 bg-opacity-60 flex items-center justify-center z-50 w-[50%] mx-auto">
 
-FooterNavigation.propTypes = {
-  setCarouselMode: PropTypes.func.isRequired, // `children` should be a React node
-};
+//CSS FILES
 
-export { AppLayout, FooterNavigation };
+/* $color-purple: #8B5CF6;
+$color-pink: #EC4899;
+$color-gray: #9CA3AF;
+$color-black: #1F2937;
+$card-size: 23rem;
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.carousel {
+  position: relative;
+  width: $card-size;
+  height: $card-size;
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+
+.card-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: 
+    rotateY(calc(var(--offset) * 50deg)) 
+    scaleY(calc(1 + var(--abs-offset) * -0.4))
+    translateZ(calc(var(--abs-offset) * -30rem))
+    translateX(calc(var(--direction) * -5rem));
+  filter: blur(calc(var(--abs-offset) * 1rem));
+  transition: all 0.3s ease-out;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background-color: hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%));
+  border-radius: 1rem;
+  color: $color-gray;
+  text-align: justify;
+  transition: all 0.3s ease-out;
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 0.7em;
+    color: $color-black;
+  }
+  
+  p, h2 {
+    transition: all 0.3s ease-out;
+    opacity: var(--active);
+  }
+}
+
+.nav {
+  color: white;
+  font-size: 5rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  z-index: 2;
+  cursor: pointer;
+  user-select: none;
+  background: unset;
+  border: unset;
+  
+  &.left {
+    transform: translateX(-100%) translatey(-50%);
+  }
+  
+  &.right {
+    right: 0;
+    transform: translateX(100%) translatey(-50%);
+  }
+} */

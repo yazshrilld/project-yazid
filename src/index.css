@@ -95,3 +95,26 @@
   filter: blur(calc(var(--abs-offset) * 1rem));
   transition: all 0.3s ease-out;
 }
+
+.nav {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  color: white;
+  z-index: 2;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transform: translateY(-50%);
+}
+
+.nav.left {
+  left: -3rem;
+}
+
+.nav.right {
+  right: -3rem;
+}
+
+
+

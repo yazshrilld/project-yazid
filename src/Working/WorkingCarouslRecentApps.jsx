@@ -11,18 +11,13 @@ const RecentAppsModal = ({ isOpen, setIsOpen, visitedPages }) => {
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (visitedPages.length > 0) {
-      setActive(0); // Reset to the latest visited page when modal opens
-    }
-  }, [visitedPages]);
-
   // console.log("From Recent Apps Page: ", visitedPages);
+  
 
   return (
     isOpen && (
       <div className="fixed inset-0 bg-opacity-60 flex items-center justify-center z-50 mx-auto">
-        <div className="relative w-full max-w-lg h-[500px] flex items-center justify-center">
+        <div className="relative w-full max-w-lg h-[500px] flex items-center justify-center border-4 border-red-500">
           {active > 0 && (
             <button className="nav left text-3xl z-[90] mr-4" onClick={() => setActive((i) => i - 1)}>
               <TiChevronLeftOutline />
@@ -33,32 +28,33 @@ const RecentAppsModal = ({ isOpen, setIsOpen, visitedPages }) => {
               key={page.id}
               className="absolute carousel w-full h-full p-4 rounded-lg cursor-pointer flex flex-col items-center"
               onClick={() => {
-                setTimeout(() => {
-                  navigate(visitedPages[active]?.path);
-                }, 100);
                 setIsOpen(false);
+                navigate(page.path);
               }}
             >
+              
               <div
                 className="card-container"
                 style={{
                   "--active": index === active ? 1 : 0,
-                  "--offset": active - index + 0.5 / 3,
-                  "--direction": Math.sign(active - index),
+                  "--offset": (active - index) + 0.5 / 3,
+                  "--direction": Math.sign(active - index) + 1,
                   "--abs-offset": Math.abs(active - index) / 3,
-                  "pointer-events": index !== active ? "auto" : "none",
+                  "pointer-events": active === index ? "auto" : "none",
                   opacity: Math.abs(active - index) >= MAX_VISIBILITY ? "0" : "1",
                   display: Math.abs(active - index) > MAX_VISIBILITY ? "none" : "block",
                 }}
               >
                 {/* <p className="card text-white text-sm text-center">{page.title}</p> */}
-                {/* {console.log({
-                  index,
-                  active,
-                  path: page.path,
-                  page,
-                  visitedPages,
-                })} */}
+                {/* {
+                  console.log({
+                    index,
+                    active,
+                    offset: (active - index) / 3,
+                    direction: Math.sign(active - index),
+                    absOffset: Math.abs(active - index) / 3
+                  })
+                } */}
                 <img src={page.thumbnail} alt={page.title} className="w-70 h-60 object-cover rounded-md mt-2" />
               </div>
             </div>

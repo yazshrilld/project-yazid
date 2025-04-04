@@ -6,20 +6,20 @@ import { SiSass, SiTypescript, SiReact } from "react-icons/si";
 
 const projects = [
   {
-    name: "REPUB",
-    techStack: [SiReact, SiTypescript, SiSass],
-    image: ImageYaz,
-    description: "A proof of concept application that shows an overview of active branches on a GitHub repository.",
-    codeLink: "https://github.com/your-repo",
-    liveLink: "https://your-live-app.com",
-  },
-  {
-    name: "Another Project",
+    name: "QUAEY",
     techStack: [SiReact, SiTypescript, SiSass],
     image: ImageNar,
     description: "Another amazing project description here.",
     codeLink: "https://github.com/another-repo",
     liveLink: "https://another-live-app.com",
+  },
+  {
+    name: "FD SaaS",
+    techStack: [SiReact, SiTypescript, SiSass],
+    image: ImageYaz,
+    description: "A proof of concept application that shows an overview of active branches on a GitHub repository.",
+    codeLink: "https://github.com/your-repo",
+    liveLink: "https://your-live-app.com",
   },
 ];
 
