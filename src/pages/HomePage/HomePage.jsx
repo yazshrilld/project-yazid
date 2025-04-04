@@ -69,10 +69,10 @@ const HomePage = () => {
 
       {/* Social Media Links */}
       <div className="flex space-x-6 text-gray-400">
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/musa-yazid-b0b66ab5/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="text-gray-500 hover:text-blue-500 cursor-pointer" size={24} />
         </a>
-        <a href="https://wa.me/yourwhatsapp" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/2347061889992" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp className="text-gray-500 hover:text-green-500 cursor-pointer" size={24} />
         </a>
       </div>

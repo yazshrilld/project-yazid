@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { FaDownload } from "react-icons/fa";
@@ -9,15 +9,13 @@ import RetaniLogo from "../../assets/img/retani.jpg";
 import VoguepayLogo from "../../assets/img/voguepay.jpg";
 
 const Experience = () => {
-  const [userEmail, setUserEmail] = useState(null);
-
   const experiences = [
     {
       company: "PROVIDUS BANK",
       role: "Frontend Engineer",
       duration: "2022 - PRESENT",
       description:
-        "Migrated an event management system, serving over 25k customers from Vue2 to Vue3 with TypeScript support and Tailwind.",
+        "Designed and built a corporate account portal that automated the previously manual and paper-intensive process of corporate account search requests.",
       logo: ProvidusLogo,
       link: "https://www.providusbank.com/home",
     },
@@ -26,7 +24,7 @@ const Experience = () => {
       role: "Frontend Web Developer",
       duration: "2022 - 2022",
       description:
-        "Contributed to the frontend development of a payment gateway system with ReactJS and NextJS, including UI design, logic optimization, and marketing website development.",
+        "Contributed and implemented loading skeletons on critical views like the Customer Dashboard and Dispute Screen on a Third-Party whitelabelling solution, ensuring a smooth user experience during data fetch operations.",
       logo: BossbusLogo,
       link: "https://www.linkedin.com/company/bossbusworld/about/",
     },
@@ -35,7 +33,7 @@ const Experience = () => {
       role: "Chrome Extension/Shopify Developer",
       duration: "2021 - 2022",
       description:
-        "Contributed to the frontend development of a payment gateway system with ReactJS and NextJS, including UI design, logic optimization, and marketing website development.",
+        "Chrome Extension Enhancement with Custom Budget Controller: Integrated a custom budget controller, giving users real-time visibility and control over their spending limits.",
       logo: RetaniLogo,
       link: "https://retaniconsults.com/",
     },
@@ -44,33 +42,12 @@ const Experience = () => {
       role: "Frontend Web Developer",
       duration: "2020 - 2022",
       description:
-        "Contributed to the frontend development of a payment gateway system with ReactJS and NextJS, including UI design, logic optimization, and marketing website development.",
+        "Contributed to the frontend development of a payment gateway system with ReactJS, including UI design, logic optimization, and marketing website development.",
       logo: VoguepayLogo,
       link: "https://vpd.money/",
     },
     // Add more experiences here...
   ];
-
-  const handleResumeRequest = async () => {
-    try {
-      const response = await fetch("https://your-api.com/request-resume", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: userEmail }), // userEmail should be obtained from the form or authentication system
-      });
-
-      if (response.ok) {
-        alert("Resume sent to your email!");
-      } else {
-        alert("Failed to send resume. Try again.");
-      }
-    } catch (error) {
-      // console.error("Error requesting resume:", error);
-      alert("An error occurred. Please try again.");
-    }
-  };
 
   return (
     <div className="px-2 py-1">

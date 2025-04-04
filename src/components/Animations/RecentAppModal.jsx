@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSwipeable } from "react-swipeable";
 import PropTypes from "prop-types";
 import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 import "./RecentAppsModal.css";
@@ -52,13 +50,7 @@ const RecentAppsModal = ({ isOpen, setIsOpen, visitedPages }) => {
                 }}
               >
                 {/* <p className="card text-white text-sm text-center">{page.title}</p> */}
-                {/* {console.log({
-                  index,
-                  active,
-                  path: page.path,
-                  page,
-                  visitedPages,
-                })} */}
+               
                 <img src={page.thumbnail} alt={page.title} className="w-70 h-60 object-cover rounded-md mt-2" />
               </div>
             </div>

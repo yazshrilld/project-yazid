@@ -45,16 +45,7 @@ const RecentAppsModal = ({ isOpen, setIsOpen, visitedPages }) => {
                   display: Math.abs(active - index) > MAX_VISIBILITY ? "none" : "block",
                 }}
               >
-                {/* <p className="card text-white text-sm text-center">{page.title}</p> */}
-                {/* {
-                  console.log({
-                    index,
-                    active,
-                    offset: (active - index) / 3,
-                    direction: Math.sign(active - index),
-                    absOffset: Math.abs(active - index) / 3
-                  })
-                } */}
+                
                 <img src={page.thumbnail} alt={page.title} className="w-70 h-60 object-cover rounded-md mt-2" />
               </div>
             </div>

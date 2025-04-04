@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
 const ReachOut = () => {
@@ -59,28 +59,6 @@ const ReachOut = () => {
       .finally(() => setIsSending(false));
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (!validateForm()) return;
-
-  //   setIsSending(true);
-  //   setErrorMessage("");
-
-  //   emailjs
-  //     .sendForm(service_id, template_id, formRef.current, public_key)
-  //     .then(() => {
-  //       setIsModalOpen(true);
-  //       setFormData({ rName: "", rEmail: "", rMessage: "" });
-  //       setErrors({});
-  //     })
-  //     .catch(() => {
-  //       setErrorMessage("Failed to send message. Please try again.");
-  //     })
-  //     .finally(() => setIsSending(false));
-  // };
-
-  // console.log("Data: ", formData?.rName);
-
   return (
     <div className="flex items-center justify-center space-y-4">
       <div className="py-6">
@@ -90,38 +68,6 @@ const ReachOut = () => {
         {errorMessage && <p className="text-red-500">{errorMessage}</p>}
 
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-          {/* <div>
-            <input
-              type="text"
-              placeholder="Full name"
-              value={formData.rName}
-              onChange={(e) => setFormData({ ...formData, rName: e.target.value })}
-              className="w-full p-3 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.rName && <p className="text-red-500 text-sm mt-1">{errors.rName}</p>}
-          </div>
-
-          <div>
-            <input
-              type="email"
-              placeholder="Email"
-              value={formData.rEmail}
-              onChange={(e) => setFormData({ ...formData, rEmail: e.target.value })}
-              className="w-full p-3 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.rEmail && <p className="text-red-500 text-sm mt-1">{errors.rEmail}</p>}
-          </div>
-
-          <div>
-            <textarea
-              placeholder="Message"
-              rows="4"
-              value={formData.rMessage}
-              onChange={(e) => setFormData({ ...formData, rMessage: e.target.value })}
-              className="w-full h-28 bg-gray-800 text-white border border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 resize-none"
-            />
-            {errors.rMessage && <p className="text-red-500 text-sm mt-1">{errors.rMessage}</p>}
-          </div> */}
           <div>
             <input
               type="text"
@@ -182,11 +128,11 @@ const ReachOut = () => {
         )}
 
         <div className="flex justify-center space-x-6 mt-6 text-gray-400 py-2">
-          <a href="https://x.com" className="hover:text-white">
+          <a href="https://www.linkedin.com/in/musa-yazid-b0b66ab5/" className="hover:text-white">
             <FaLinkedin size={24} />
           </a>
-          <a href="https://x.com" className="hover:text-white">
-            <FaTwitter size={24} />
+          <a href="https://wa.me/2347061889992" className="hover:text-white">
+            <FaWhatsapp size={24} />
           </a>
         </div>
       </div>

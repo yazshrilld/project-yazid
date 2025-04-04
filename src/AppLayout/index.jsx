@@ -1,12 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Home, ArrowLeft, List } from "lucide-react";
-import sunIcon from "../assets/svg/sun.svg";
-import moonIcon from "../assets/svg/moon.svg";
 import PropTypes from "prop-types";
-import html2canvas from "html2canvas";
 import RecentAppsModal from "../components/Animations/RecentAppModal";
-import { useRecentApps } from "../context/RecentAppContext";
 import HomePage from "../assets/img/homePage.png";
 import AboutUsImage from "../assets/img/aboutUs.png";
 import ExperienceImage from "../assets/img/experience.png";
@@ -18,12 +14,7 @@ const AppLayout = ({ children }) => {
   const location = useLocation();
   const [showRecentApps, setShowRecentApps] = useState(false);
   const [visitedPages, setVisitedPages] = useState([]);
-  const { addRecentApp } = useRecentApps();
   const pageRef = useRef(null);
-
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "light";
-  });
 
   const initialPages = [
     { id: "1", title: "HomePage", path: "/", thumbnail: HomePage },
@@ -47,41 +38,10 @@ const AppLayout = ({ children }) => {
   }, [location.pathname]);
 
   const isHomePage = location.pathname === "/";
-  useEffect(() => {
-    // if (darkMode)
-    //    {
-    //   document.documentElement.classList.add("dark");
-    //   localStorage.setItem("theme", "dark");
-    // }
-    if (darkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
-
-  //Capture screenshot
-  useEffect(() => {
-    // console.log("📌 Capturing Screenshot for:", location.pathname);
-
-    // Wait a bit to ensure everything is rendered
-    setTimeout(() => {
-      html2canvas(document.body).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        // console.log("📌 Adding Recent App:", { path: location.pathname, img: imgData });
-
-        addRecentApp({ path: location.pathname, img: imgData });
-      });
-    }, 1000); // Wait 1 second to ensure everything is fully loaded
-  }, [location.pathname]);
-
-  console.log("Mode: ", {darkMode})
-  
 
   return (
     <div
-      className={`relative flex flex-col min-h-screen w-full transition-all duration-300 ${
-        darkMode ? "bg-gradient-dark" : "bg-gradient-dark"
-      }`}
+      className="relative flex flex-col min-h-screen w-full transition-all duration-300 bg-gradient-dark"
       ref={pageRef}
     >
       {showRecentApps && (
@@ -92,17 +52,9 @@ const AppLayout = ({ children }) => {
         />
       )}
 
-      {/* <div className="absolute top-4 right-4 hidden md:block">
-        <button onClick={() => setDarkMode(!darkMode)} className="p-2 rounded-full bg-gray-200 dark:bg-gray-800">
-          <img src={darkMode ? sunIcon : moonIcon} alt="Theme Toggle Icon" className="w-8 h-8" />
-        </button>
-      </div> */}
-
       <div className="flex flex-col items-center justify-center">
         <main
-          className={`max-w-sm md:max-w-xl transition-all duration-300 w-full ${
-            !darkMode ? "bg-white" : ""
-          } shadow-lg px-8 py-[30px] rounded-10px md:rounded-[30px]`}
+          className={`max-w-sm md:max-w-xl transition-all duration-300 w-full shadow-lg px-8 py-[30px] rounded-10px md:rounded-[30px]`}
         >
           {!showRecentApps && children}
         </main>
