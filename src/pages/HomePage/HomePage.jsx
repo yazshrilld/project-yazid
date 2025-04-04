@@ -46,18 +46,18 @@ const HomePage = () => {
       </div>
 
       {/* Skills Section */}
-      <div className="grid grid-cols-3 xsm:gap-2 sm:gap-0 xs:grid-cols-3 sm:grid-cols-3 xs:gap-1 text-gray-400 w-full max-w-xs sm:max-w-sm md:max-w-md text-[11px] sm:text-[14px]">
+      <div className="grid grid-cols-3 xsm:gap-2 smd:gap-0 xs:grid-cols-3 smd:grid-cols-3 xs:gap-1 text-gray-400 w-full max-w-xs smd:max-w-sm md:max-w-md text-[11px] smd:text-[14px]">
         <div className="flex items-center gap-2 justify-center">
-          <SiReact className="text-gray-500 hover:text-blue-500 cursor-pointer xs:w-4 xs:h-4 sm:w-6 sm:h-6 xsm:w-6 xsm:h-6" />
-          <span className="xsm:text-[9px] xs:text-[12px] sm:text-[16px] hidden xs:block">React</span>
+          <SiReact className="text-gray-500 hover:text-blue-500 cursor-pointer xs:w-4 xs:h-4 smd:w-6 smd:h-6 xsm:w-6 xsm:h-6" />
+          <span className="xsm:text-[9px] xs:text-[12px] smd:text-[16px] hidden xs:block">React</span>
         </div>
         <div className="flex items-center gap-2 justify-center">
-          <SiTypescript className="text-gray-500 hover:text-blue-500 cursor-pointer xs:w-4 xs:h-4 sm:w-6 sm:h-6 xsm:w-6 xsm:h-6" />
-          <span className="sm:text-[16px] hidden sm:block">TypeScript</span>
+          <SiTypescript className="text-gray-500 hover:text-blue-500 cursor-pointer xs:w-4 xs:h-4 smd:w-6 smd:h-6 xsm:w-6 xsm:h-6" />
+          <span className="smd:text-[16px] hidden smd:block">TypeScript</span>
         </div>
         <div className="flex items-center gap-2 justify-center">
-          <BsBrowserChrome className="text-gray-500 hover:text-blue-500 cursor-pointer xs:w-4 xs:h-4 sm:w-6 sm:h-6 xsm:w-6 xsm:h-6" />
-          <span className="xsm:text-[9px] xs:text-[12px] sm:text-[16px] hidden xs:block">Chrome Ext.</span>
+          <BsBrowserChrome className="text-gray-500 hover:text-blue-500 cursor-pointer xs:w-4 xs:h-4 smd:w-6 smd:h-6 xsm:w-6 xsm:h-6" />
+          <span className="xsm:text-[9px] xs:text-[12px] smd:text-[16px] hidden xs:block">Chrome Ext.</span>
         </div>
       </div>
 

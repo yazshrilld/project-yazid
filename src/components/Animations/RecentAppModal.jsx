@@ -22,7 +22,7 @@ const RecentAppsModal = ({ isOpen, setIsOpen, visitedPages }) => {
       <div className="fixed inset-0 bg-opacity-60 flex items-center justify-center z-50 mx-auto">
         <div className="relative w-full max-w-lg h-[500px] flex items-center justify-center">
           {active > 0 && (
-            <button className="nav left text-3xl z-[90] mr-4" onClick={() => setActive((i) => i - 1)}>
+            <button className="hidden sm:block nav left text-3xl z-[90] mr-4" onClick={() => setActive((i) => i - 1)}>
               <TiChevronLeftOutline />
             </button>
           )}
@@ -50,14 +50,31 @@ const RecentAppsModal = ({ isOpen, setIsOpen, visitedPages }) => {
                 }}
               >
                 {/* <p className="card text-white text-sm text-center">{page.title}</p> */}
-               
-                <img src={page.thumbnail} loading="lazy" alt={page.title} className="w-70 h-60 object-cover rounded-md mt-2" />
 
+                <img
+                  src={page.thumbnail}
+                  loading="lazy"
+                  alt={page.title}
+                  className="w-70 h-60 object-cover rounded-md mt-2"
+                />
               </div>
             </div>
           ))}
           {active < visitedPages?.length - 1 && (
-            <button className="nav right text-3xl z-[90]" onClick={() => setActive((i) => i + 1)}>
+            <button className="hidden smd:block nav right text-3xl z-[90]" onClick={() => setActive((i) => i + 1)}>
+              <TiChevronRightOutline />
+            </button>
+          )}
+        </div>
+
+        <div className="absolute bottom-20 flex justify-center gap-10 smd:hidden smd:border-4 smd:border-red-500">
+          {active > 0 && (
+            <button className="nav-mobile text-2xl" onClick={() => setActive((i) => i - 1)}>
+              <TiChevronLeftOutline />
+            </button>
+          )}
+          {active < visitedPages?.length - 1 && (
+            <button className="nav-mobile text-2xl" onClick={() => setActive((i) => i + 1)}>
               <TiChevronRightOutline />
             </button>
           )}
