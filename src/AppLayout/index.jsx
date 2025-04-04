@@ -73,12 +73,14 @@ const AppLayout = ({ children }) => {
       });
     }, 1000); // Wait 1 second to ensure everything is fully loaded
   }, [location.pathname]);
+
+  console.log("Mode: ", {darkMode})
   
 
   return (
     <div
       className={`relative flex flex-col min-h-screen w-full transition-all duration-300 ${
-        darkMode ? "bg-gradient-dark" : "bg-gray-400"
+        darkMode ? "bg-gradient-dark" : "bg-gradient-dark"
       }`}
       ref={pageRef}
     >
@@ -90,11 +92,11 @@ const AppLayout = ({ children }) => {
         />
       )}
 
-      <div className="absolute top-4 right-4 hidden md:block">
+      {/* <div className="absolute top-4 right-4 hidden md:block">
         <button onClick={() => setDarkMode(!darkMode)} className="p-2 rounded-full bg-gray-200 dark:bg-gray-800">
           <img src={darkMode ? sunIcon : moonIcon} alt="Theme Toggle Icon" className="w-8 h-8" />
         </button>
-      </div>
+      </div> */}
 
       <div className="flex flex-col items-center justify-center">
         <main
