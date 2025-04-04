@@ -58,25 +58,24 @@ const AppLayout = ({ children }) => {
         >
           {!showRecentApps && children}
         </main>
-        <footer className="w-full max-w-[400px] mt-auto px-4 text-gray-400 pb-6">
+        <footer className="w-full max-w-[300px] smd:max-w-[400px] mt-auto px-4 text-gray-400 pb-6">
           {!showRecentApps && (
             <div className="mt-4 flex gap-x-[30px] justify-between items-center">
               <ArrowLeft
-                size={28}
-                className={`cursor-pointer ${isHomePage ? "opacity-50 cursor-text" : "hover:text-white"}`}
+                className={`text-[24px] smd:text-[8px] cursor-pointer ${
+                  isHomePage ? "opacity-50 cursor-text" : "hover:text-white"
+                }`}
                 onClick={() => {
                   if (!isHomePage) navigate(-1);
                 }}
               />
               <Home
-                size={28}
-                className="hover:text-white cursor-pointer"
+                className="text-[24px] smd:text-[8px] hover:text-white cursor-pointer"
                 onClick={() => navigate("/")} // Navigate to homepage
               />
               {visitedPages?.length >= 3 && (
                 <List
-                  size={28}
-                  className="cursor-pointer hover:text-white"
+                  className="text-[24px] smd:text-[8px] cursor-pointer hover:text-white"
                   onClick={() => setShowRecentApps(!showRecentApps)}
                 />
               )}
