@@ -49,7 +49,7 @@ const RecentAppsModal = ({ isOpen, setIsOpen, visitedPages }) => {
                   display: Math.abs(active - index) > MAX_VISIBILITY ? "none" : "block",
                 }}
               >
-                {/* <p className="card text-white text-sm text-center">{page.title}</p> */}
+                {/* <p className="card text-white text-sm text-center">{page.title/path}</p> */}
 
                 <img
                   src={page.thumbnail}
