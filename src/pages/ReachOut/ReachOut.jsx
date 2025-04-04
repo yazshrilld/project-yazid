@@ -54,7 +54,7 @@ const ReachOut = () => {
         setErrors({});
       })
       .catch(() => {
-        setErrorMessage("Failed to send message. Please try again.");
+        setErrorMessage("Failed to send message. Please try again...");
       })
       .finally(() => setIsSending(false));
   };
