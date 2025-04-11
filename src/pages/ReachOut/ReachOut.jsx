@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 const ReachOut = () => {
@@ -14,6 +15,18 @@ const ReachOut = () => {
   const service_id = "service_d3xuz4a";
   const template_id = "template_zfv5j9b";
   const public_key = "jp3ceBAkBTPfo97YU";
+
+  const linearRotate = {
+    hover: {
+      x: [0, 3, -3, 0],
+      transition: {
+        duration: 0.4,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut",
+      },
+    },
+  };
 
   const validateForm = () => {
     let newErrors = {};
@@ -62,13 +75,27 @@ const ReachOut = () => {
   return (
     <div className="flex items-center justify-center space-y-4">
       <div className="py-6">
-        <h2 className="text-[42px] font-bold mb-6 text-white ">Reach Out</h2>
-        <p className="text-gray-400 py-2">Feel free to drop me a line using the form or any of my socials.</p>
+        <motion.h2
+          className="text-[42px] font-bold mb-6 text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          Reach Out
+        </motion.h2>
+        <motion.p
+          className="text-gray-400 py-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          Feel free to drop me a line using the form or any of my socials.
+        </motion.p>
 
         {errorMessage && <p className="text-red-500">{errorMessage}</p>}
 
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-          <div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}>
             <input
               type="text"
               name="rName" // Add this
@@ -78,9 +105,9 @@ const ReachOut = () => {
               className="w-full p-3 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.rName && <p className="text-red-500 text-sm mt-1">{errors.rName}</p>}
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.9 }}>
             <input
               type="email"
               name="rEmail" // Add this
@@ -90,9 +117,9 @@ const ReachOut = () => {
               className="w-full p-3 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.rEmail && <p className="text-red-500 text-sm mt-1">{errors.rEmail}</p>}
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}>
             <textarea
               name="rMessage" // Add this
               placeholder="Message"
@@ -102,14 +129,17 @@ const ReachOut = () => {
               className="w-full h-28 bg-gray-800 text-white border border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 resize-none"
             />
             {errors.rMessage && <p className="text-red-500 text-sm mt-1">{errors.rMessage}</p>}
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
             type="submit"
             className="w-full border border-gray-600 hover:bg-blue-600 text-white font-semibold py-3 rounded-md transition-all"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
           >
             {isSending ? "Sending..." : "Send"}
-          </button>
+          </motion.button>
         </form>
 
         {isModalOpen && (
@@ -127,14 +157,19 @@ const ReachOut = () => {
           </div>
         )}
 
-        <div className="flex justify-center space-x-6 mt-6 text-gray-400 py-2">
+        <motion.div
+          className="flex justify-center space-x-6 mt-6 text-gray-400 py-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.8 }}
+        >
           <a href="https://www.linkedin.com/in/musa-yazid-b0b66ab5/" className="hover:text-white">
             <FaLinkedin size={24} />
           </a>
           <a href="https://wa.me/2347061889992" className="hover:text-white">
             <FaWhatsapp size={24} />
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

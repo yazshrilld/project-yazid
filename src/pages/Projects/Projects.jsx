@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProjectCard from "../../components/Projects/ProjectCard";
+import { motion } from "framer-motion";
 import ImageNar from "../../assets/img/bg-image-2.png";
 import ImageYaz from "../../assets/img/Yazid.jpeg";
 import { SiSass, SiTypescript, SiReact } from "react-icons/si";
@@ -46,7 +47,14 @@ const Projects = () => {
 
   return (
     <div className="text-white">
-      <h1 className="text-[42px] font-bold mb-6">Projects</h1>
+      <motion.h1
+        className="text-[42px] font-bold mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
+        Projects
+      </motion.h1>
 
       <ProjectCard project={projects[currentIndex]} nextProject={nextProject} prevProject={prevProject} />
     </div>

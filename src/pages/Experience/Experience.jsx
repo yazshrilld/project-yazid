@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FaDownload } from "react-icons/fa";
 import EmployeeCard from "../../components/Employee/EmployeeCard";
@@ -49,11 +50,28 @@ const Experience = () => {
     // Add more experiences here...
   ];
 
+  const linearRotate = {
+    hover: {
+      x: [0, 3, -3, 0],
+      transition: {
+        duration: 0.4,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <div className="px-2 py-1">
-      <div className="flex flex-col items-start space-y-2 md:flex-row md:items-center justify-between md:mb-4">
-        <h1 className="text-[30px] md:text-[42px] font-bold text-white">Experience</h1>
-        <button
+      <motion.div
+        className="flex flex-col items-start space-y-2 md:flex-row md:items-center justify-between md:mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
+        <motion.h1 className="text-[30px] md:text-[42px] font-bold text-white">Experience</motion.h1>
+        <motion.button
           onClick={() =>
             window.open(
               "https://drive.google.com/file/d/1qh_yT60nzrkoLJvuCeSNn2LYzgzU_6ZW/view?usp=drive_link",
@@ -64,31 +82,43 @@ const Experience = () => {
         >
           <FaDownload className="text-md md:text-lg" /> {/* Download icon */}
           Resume
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
 
-      <div className="mt-4 ">
+      <motion.div
+        className="mt-4 "
+        initial={{ opacity: 0, x: 40 }} // Start invisible & slightly lower
+        animate={{ opacity: 1, x: 0 }} // Fade in & move up
+        transition={{ duration: 0.6, ease: "easeOut" }} // Smooth transition
+      >
         <p className="text-[#C2C2C2] text-[12px] md:text-sm">
           {`Frontend Engineer with 5+ years of experience in crafting visually engaging and high-performance web applications. Adept at working independently and collaboratively to deliver exceptional user experiences while ensuring efficiency and attention to detail.`}
         </p>
         <br />
-      </div>
+      </motion.div>
 
-      <div className="space-y-6 h-[40vh] overflow-y-auto thin-scrollbar">
+      <motion.div
+        className="space-y-6 h-[40vh] overflow-y-auto thin-scrollbar"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+      >
         {experiences.map((exp, index) => (
           <EmployeeCard key={index} {...exp} />
         ))}
-      </div>
+      </motion.div>
 
       <Link
         to="/project"
         className="mt-8 bg-blue-600 max-w-[500px] px-6 py-2 rounded-full flex justify-between items-center shadow-md hover:bg-blue-700 transition-all"
       >
         <span className="text-lg"></span> {/* Empty span to push content to the right */}
-        <span className="text-lg flex items-center gap-2">
+        <motion.span className="text-lg flex items-center gap-2" initial="rest" whileHover="hover" animate="rest">
           Projects
-          <ArrowRight size={20} />
-        </span>
+          <motion.div className="inline-block" variants={linearRotate}>
+            <ArrowRight size={20} />
+          </motion.div>
+        </motion.span>
       </Link>
     </div>
   );
