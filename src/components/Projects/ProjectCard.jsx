@@ -67,13 +67,23 @@ const ProjectCard = ({ project, nextProject, prevProject }) => {
         </div>
 
         {/* Project Image */}
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <img
             src={project.image}
             loading="lazy"
             alt={project.name}
-            className="rounded-md w-full h-[250px] object-contain"
+            className="rounded-lg w-full h-[250px] object-contain"
           />
+        </div> */}
+        <div className="mt-4">
+          <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+            <img
+              src={project.image}
+              loading="lazy"
+              alt={project.name}
+              className="rounded-lg w-full h-[250px] object-contain"
+            />
+          </a>
         </div>
 
         {/* Description */}
