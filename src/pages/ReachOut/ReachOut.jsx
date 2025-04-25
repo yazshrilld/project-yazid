@@ -163,10 +163,10 @@ const ReachOut = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.8 }}
         >
-          <a href="https://www.linkedin.com/in/musa-yazid-b0b66ab5/" className="hover:text-white">
+          <a href="https://www.linkedin.com/in/musa-yazid-b0b66ab5/" className="hover:text-blue-500">
             <FaLinkedin size={24} />
           </a>
-          <a href="https://wa.me/2347061889992" className="hover:text-white">
+          <a href="https://wa.me/2347061889992" className="hover:text-green-500">
             <FaWhatsapp size={24} />
           </a>
         </motion.div>

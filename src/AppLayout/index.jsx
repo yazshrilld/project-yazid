@@ -6,7 +6,7 @@ import RecentAppsModal from "../components/Animations/RecentAppModal";
 import HomePage from "../assets/img/homePage.png";
 import AboutUsImage from "../assets/img/aboutUs.png";
 import ExperienceImage from "../assets/img/experience.png";
-import ProjectImage from "../assets/img/projects.png";
+import ProjectImage from "../assets/img/projects-land.png";
 import ContactImage from "../assets/img/contactMe.png";
 
 const AppLayout = ({ children }) => {

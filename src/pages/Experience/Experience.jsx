@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useTime, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FaDownload } from "react-icons/fa";
 import EmployeeCard from "../../components/Employee/EmployeeCard";
@@ -10,6 +10,14 @@ import RetaniLogo from "../../assets/img/retani.jpg";
 import VoguepayLogo from "../../assets/img/voguepay.jpg";
 
 const Experience = () => {
+  const time = useTime();
+  const rotate = useTransform(time, [0, 3000], [0, 360], {
+    clamp: false,
+  });
+  const rotatingBg = useTransform(rotate, (r) => {
+    return `conic-gradient(from ${r}deg, darkblue, black, darkblue, rgba(255, 255, 255, 0.05), darkblue)`;
+  });
+
   const experiences = [
     {
       company: "PROVIDUS BANK",
@@ -71,18 +79,28 @@ const Experience = () => {
         transition={{ duration: 0.4, delay: 0.2 }}
       >
         <motion.h1 className="text-[30px] md:text-[42px] font-bold text-white">Experience</motion.h1>
-        <motion.button
-          onClick={() =>
-            window.open(
-              "https://drive.google.com/file/d/1qh_yT60nzrkoLJvuCeSNn2LYzgzU_6ZW/view?usp=drive_link",
-              "_blank"
-            )
-          }
-          className="flex items-center gap-2 text-[#C2C2C2] border border-[#C2C2C2] px-2 py-1 md:px-4 md:py-2 rounded-lg text-sm font-medium transition-all hover:bg-[#C2C2C2] hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
-        >
-          <FaDownload className="text-md md:text-lg" /> {/* Download icon */}
-          Resume
-        </motion.button>
+        <div className="relative">
+          <motion.button
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/file/d/1qh_yT60nzrkoLJvuCeSNn2LYzgzU_6ZW/view?usp=drive_link",
+                "_blank"
+              )
+            }
+            className="flex items-center gap-2 text-[#C2C2C2] border border-[#C2C2C2] z-10 relative px-2 py-1 md:px-4 md:py-2 rounded-lg text-sm font-medium focus:outline-none transition-shadow duration-300 hover:shadow-[0_0_10px_rgba(253,184,21,0.6)]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <FaDownload className="text-md md:text-lg" /> {/* Download icon */}
+            Resume
+          </motion.button>
+          <motion.div
+            className="absolute -inset-[5px] rounded-lg bg-yellow-400"
+            style={{
+              background: rotatingBg,
+            }}
+          />
+        </div>
       </motion.div>
 
       <motion.div

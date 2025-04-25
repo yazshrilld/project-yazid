@@ -72,7 +72,7 @@ const ProjectCard = ({ project, nextProject, prevProject }) => {
             src={project.image}
             loading="lazy"
             alt={project.name}
-            className="rounded-md w-full h-[250px] object-cover"
+            className="rounded-md w-full h-[250px] object-contain"
           />
         </div>
 
@@ -81,19 +81,27 @@ const ProjectCard = ({ project, nextProject, prevProject }) => {
 
         {/* Links */}
         <div className="mt-4 flex gap-4">
-          <a
+          {/* <a
             href={project.codeLink}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline"
           >
             View Code
-          </a>
-          <a
+          </a> */}
+          {/* <a
             href={project.liveLink}
             target="_blank"
             rel="noopener noreferrer"
             className="text-green-400 hover:underline"
+          >
+            View App
+          </a> */}
+          <a
+            href={project.liveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 transition-colors"
           >
             View App
           </a>

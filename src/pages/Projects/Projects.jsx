@@ -1,26 +1,40 @@
 import { useState } from "react";
 import ProjectCard from "../../components/Projects/ProjectCard";
 import { motion } from "framer-motion";
-import ImageNar from "../../assets/img/bg-image-2.png";
-import ImageYaz from "../../assets/img/Yazid.jpeg";
-import { SiSass, SiTypescript, SiReact } from "react-icons/si";
+import YazDashboard from "../../assets/img/yaz-dashboard.png";
+import Notifications from "../../assets/img/notifications-design.png";
+import GitFinder from "../../assets/img/github-finder.png";
+import { SiSass, SiTypescript, SiReact, SiNextdotjs } from "react-icons/si";
+import { IoLogoJavascript } from "react-icons/io5";
+import { RiTailwindCssFill } from "react-icons/ri";
 
 const projects = [
   {
-    name: "QUAEY",
-    techStack: [SiReact, SiTypescript, SiSass],
-    image: ImageNar,
-    description: "Another amazing project description here.",
+    name: "Yaz Bank Dashboard",
+    techStack: [SiNextdotjs, SiTypescript, SiSass],
+    image: YazDashboard,
+    description:
+      "Yaz Bank Admin Dashboard is a fully responsive, production-grade interface designed for financial management at scale. Built with Next.js, TypeScript, and TailwindCSS, it empowers bank administrators to efficiently manage accounts, transactions, cards, documentation, and customer support.",
     codeLink: "https://github.com/another-repo",
-    liveLink: "https://another-live-app.com",
+    liveLink: "https://profile-dashboard-git-main-yazid-musas-projects.vercel.app/",
   },
   {
-    name: "FD SaaS",
-    techStack: [SiReact, SiTypescript, SiSass],
-    image: ImageYaz,
-    description: "A proof of concept application that shows an overview of active branches on a GitHub repository.",
+    name: "Notifications",
+    techStack: [SiReact, IoLogoJavascript, RiTailwindCssFill],
+    image: Notifications,
+    description:
+      "Notifications Center is a real-time, user-friendly interface that keeps users updated on important activities. Built with React, JavaScript, and TailwindCSS, the page dynamically categorizes unread and read notifications, providing quick access to relevant updates.",
     codeLink: "https://github.com/your-repo",
-    liveLink: "https://your-live-app.com",
+    liveLink: "https://notifications-page-git-main-yazid-musas-projects.vercel.app/",
+  },
+  {
+    name: "Github finder",
+    techStack: [SiReact, IoLogoJavascript, RiTailwindCssFill],
+    image: GitFinder,
+    description:
+      "GitHub Finder is a responsive application that allows users to search for GitHub profiles and view essential user information like repositories, followers, bio, and social links.",
+    codeLink: "https://github.com/your-repo",
+    liveLink: "https://github-finder-eta-pied.vercel.app/",
   },
 ];
 
